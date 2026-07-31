@@ -18,6 +18,8 @@ int main(int argc, char *argv[]) {
     scene->addItem(rect);
 
     QGraphicsView view(scene);
+    view.setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    view.setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     view.show();
 
     return a.exec();

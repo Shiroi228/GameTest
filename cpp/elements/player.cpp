@@ -1,14 +1,37 @@
 #include <QKeyEvent>
+#include <QGraphicsScene>
 
 #include "player.hpp"
+#include "bullet.hpp"
 
 namespace elements {
 
 void PlayerElement::keyPressEvent(QKeyEvent *event) {
-    if (event->key() == Qt::Key_Left) { setPos(x() - 10, y()); }
-    if (event->key() == Qt::Key_Right) { setPos(x() + 10, y()); }
-    if (event->key() == Qt::Key_Up) { setPos(x(), y() - 10); }
-    if (event->key() == Qt::Key_Down) { setPos(x(), y() + 10); }
+    switch (event->key()) {
+    case Qt::Key_Left: {
+        setPos(x() - 10, y());
+        break;
+    }
+    case Qt::Key_Right: {
+        setPos(x() + 10, y());
+        break;
+    }
+    case Qt::Key_Up: {
+        setPos(x(), y() - 10);
+        break;
+    }
+    case Qt::Key_Down: {
+        setPos(x(), y() + 10);
+        break;
+    }
+    case Qt::Key_Space: {
+        BulletElement *bullet = new BulletElement();
+        bullet->setPos(x(), y());
+        scene()->addItem(bullet);
+    }
+    default:
+        break;
+    }
 }
 
 }

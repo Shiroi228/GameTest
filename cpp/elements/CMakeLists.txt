@@ -19,8 +19,10 @@ set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(PROJECT_SOURCES
     element.hpp
     player.hpp
+    bullet.hpp
     
     player.cpp
+    bullet.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
