@@ -2,6 +2,7 @@
 #include <QGraphicsRectItem>
 #include <QGraphicsScene>
 #include <QGraphicsView>
+#include <QTimer>
 
 #include "defframework/mainwindow.hpp"
 #include "elements/player.hpp"
@@ -26,6 +27,10 @@ int main(int argc, char *argv[]) {
     scene->setSceneRect(0, 0, 800, 600);
 
     player->setPos(view.width() / 2 - player->rect().width() / 2, view.height() - player->rect().height());
+
+    QTimer *timer = new QTimer();
+    QObject::connect(timer, &QTimer::timeout, player, &elements::PlayerElement::spawn);
+    timer->start(2000);
 
     return a.exec();
 }

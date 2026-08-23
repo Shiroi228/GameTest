@@ -1,13 +1,19 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 
+#include <QObject>
+
 #include "element.hpp"
 
 namespace elements {
     
-class PlayerElement : public DefaultElement {
+class PlayerElement : public QObject, public DefaultElement {
+    Q_OBJECT
 public:
     void keyPressEvent(QKeyEvent *event) override;
+
+public slots:
+    void spawn();
 };
 
 }

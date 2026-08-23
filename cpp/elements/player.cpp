@@ -1,8 +1,9 @@
-#include <QKeyEvent>
 #include <QGraphicsScene>
+#include <QKeyEvent>
 
-#include "player.hpp"
 #include "bullet.hpp"
+#include "enemy.hpp"
+#include "player.hpp"
 
 namespace elements {
 
@@ -33,6 +34,11 @@ void PlayerElement::keyPressEvent(QKeyEvent *event) {
     default:
         break;
     }
+}
+
+void PlayerElement::spawn() {
+    EnemyElement *enemy = new EnemyElement(scene()->width());
+    scene()->addItem(enemy);
 }
 
 }
