@@ -1,7 +1,9 @@
 #ifndef BULLET_H
 #define BULLET_H
 
+#include <QList>
 #include <QObject>
+#include <QGraphicsItem>
 
 #include "element.hpp"
 
@@ -14,6 +16,9 @@ public:
 
 public slots:
     void move();
+
+private:
+    QList<QGraphicsItem *> collidingItems_;
 };
 
 }
