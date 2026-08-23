@@ -1,3 +1,5 @@
+#include <QDebug>
+#include <QGraphicsScene>
 #include <QTimer>
 
 #include "bullet.hpp"
@@ -15,6 +17,13 @@ BulletElement::BulletElement() {
 
 void BulletElement::move() {
     setPos(x(), y() - 10);
+
+    if (pos().y() + rect().height() < 0) {
+        scene()->removeItem(this);
+        delete this;
+
+        qDebug("Bullet deleted");
+    }
 }
 
 }
