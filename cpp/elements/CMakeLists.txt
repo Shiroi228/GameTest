@@ -17,12 +17,14 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/lib")
 
 set(PROJECT_SOURCES
-    element.hpp
-    player.hpp
     bullet.hpp
+    element.hpp
+    enemy.hpp
+    player.hpp
     
-    player.cpp
     bullet.cpp
+    enemy.cpp
+    player.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

@@ -6,7 +6,7 @@
 
 namespace elements {
 
-BulletElement::BulletElement() {
+BulletElement::BulletElement() : QObject(), DefaultElement() {
     setRect(0, 0, 10, 50);
 
     QTimer *timer = new QTimer();
