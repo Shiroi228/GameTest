@@ -28,7 +28,7 @@ void PlayerElement::keyPressEvent(QKeyEvent *event) {
     // }
     case Qt::Key_Space: {
         BulletElement *bullet = new BulletElement();
-        bullet->setPos(x(), y());
+        bullet->setPos(x() + rect().width() / 2 - (bullet->rect().width() / 2), y());
         scene()->addItem(bullet);
     }
     default:
