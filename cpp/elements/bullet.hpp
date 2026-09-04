@@ -5,7 +5,7 @@
 #include <QObject>
 #include <QGraphicsItem>
 
-#include "element.hpp"
+#include "elements.hpp"
 
 namespace elements {
     
