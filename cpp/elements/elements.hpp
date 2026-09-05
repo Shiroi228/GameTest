@@ -1,12 +1,15 @@
-#ifndef ELEMENT_H
-#define ELEMENT_H
+#ifndef ELEMENTS_H
+#define ELEMENTS_H
 
-#include <QGraphicsRectItem>
+#include <QGraphicsPixmapItem>
 #include <QGraphicsTextItem>
 
 namespace elements {
     
-class DefaultElement : public QGraphicsRectItem {};
+class DefaultElement : public QGraphicsPixmapItem {
+public:
+    DefaultElement(QGraphicsItem *parent = nullptr) : QGraphicsPixmapItem(parent) {};
+};
 
 class TextElement : public QGraphicsTextItem {
 public:
@@ -15,4 +18,4 @@ public:
 
 }
 
-#endif // ELEMENT_H
+#endif // ELEMENTS_H

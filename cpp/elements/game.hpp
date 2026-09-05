@@ -2,11 +2,12 @@
 #define GAME_H
 
 #include <QGraphicsView>
+#include <QMediaPlayer>
 #include <QSharedPointer>
 
+#include "health.hpp"
 #include "player.hpp"
 #include "score.hpp"
-// #include "health.hpp"
 
 namespace elements {
 
@@ -19,13 +20,15 @@ public:
     QGraphicsScene *scene() const;
     PlayerElement *player() const;
     ScoreElement *scoreElement() const;
-    // HealthElement *healthElement() const;
+    HealthElement *healthElement() const;
 
 private:
     QGraphicsScene *scene_;
     PlayerElement *player_;
     ScoreElement *scoreElement_;
-    // HealthElement *healthElement_;
+    HealthElement *healthElement_;
+
+    QMediaPlayer *mediaPlayer_;
 };
 
 }

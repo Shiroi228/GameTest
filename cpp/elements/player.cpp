@@ -7,6 +7,13 @@
 
 namespace elements {
 
+PlayerElement::PlayerElement(QGraphicsItem *parent) : QObject(), DefaultElement(parent) {
+    QPixmap pixmap(":/images/player.png");
+    pixmap = pixmap.scaled(100, 100);
+
+    setPixmap(pixmap);
+}
+
 void PlayerElement::keyPressEvent(QKeyEvent *event) {
     switch (event->key()) {
     case Qt::Key_Left: {
@@ -15,7 +22,7 @@ void PlayerElement::keyPressEvent(QKeyEvent *event) {
         break;
     }
     case Qt::Key_Right: {
-        if (pos().x() + rect().width() < scene()->width()) { setPos(x() + 10, y()); }
+        if (pos().x() + boundingRect().width() < scene()->width()) { setPos(x() + 10, y()); }
         break;
     }
     // case Qt::Key_Up: {
@@ -28,7 +35,7 @@ void PlayerElement::keyPressEvent(QKeyEvent *event) {
     // }
     case Qt::Key_Space: {
         BulletElement *bullet = new BulletElement();
-        bullet->setPos(x() + rect().width() / 2 - (bullet->rect().width() / 2), y());
+        bullet->setPos(x() + boundingRect().width() / 2 - (bullet->boundingRect().width() / 2), y());
         scene()->addItem(bullet);
     }
     default:
