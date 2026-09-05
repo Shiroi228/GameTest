@@ -10,6 +10,8 @@ namespace elements {
 class PlayerElement : public QObject, public DefaultElement {
     Q_OBJECT
 public:
+    PlayerElement(QGraphicsItem *parent = nullptr);
+
     void keyPressEvent(QKeyEvent *event) override;
 
 public slots:

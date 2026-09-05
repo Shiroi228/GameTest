@@ -1,9 +1,11 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include <QList>
-#include <QObject>
+#include <QAudioOutput>
 #include <QGraphicsItem>
+#include <QList>
+#include <QMediaPlayer>
+#include <QObject>
 
 #include "elements.hpp"
 
@@ -19,6 +21,8 @@ public slots:
 
 private:
     QList<QGraphicsItem *> collidingItems_;
+    QMediaPlayer *mediaPlayer_;
+    QAudioOutput *audioOutput_;
 };
 
 }

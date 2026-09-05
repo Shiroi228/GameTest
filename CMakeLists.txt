@@ -9,8 +9,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED Core Gui Widgets LinguistTools)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED Core Gui Widgets LinguistTools)
+find_package(QT NAMES Qt6 Qt5 REQUIRED Core Gui Widgets LinguistTools Multimedia)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED Core Gui Widgets LinguistTools Multimedia)
 
 add_subdirectory(cpp/plugins)
 add_subdirectory(cpp/elements)
@@ -28,6 +28,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
     )
+    qt_add_resources(${PROJECT_NAME} "resources"
+        PREFIX "/"
+        FILES
+        cpp/res/res.qrc
+    )
 else()
     add_executable(${PROJECT_NAME}
         ${PROJECT_SOURCES}
@@ -44,6 +49,7 @@ target_include_directories(${PROJECT_NAME} PRIVATE
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Core)
 target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Gui)
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Multimedia)
 target_link_libraries(${PROJECT_NAME} PRIVATE DefFramework_lib)
 target_link_libraries(${PROJECT_NAME} PRIVATE Elements_lib)
 
