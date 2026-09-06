@@ -8,6 +8,7 @@ HealthElement::HealthElement(QGraphicsItem *parent) : TextElement(parent), healt
     updateHealth(health_);
     setDefaultTextColor(Qt::white);
     setFont(QFont("times", 16));
+    setDefaultTextColor(QColor(Qt::black));
 }
 
 int HealthElement::health() {

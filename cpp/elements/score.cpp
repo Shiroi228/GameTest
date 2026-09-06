@@ -8,6 +8,7 @@ ScoreElement::ScoreElement(QGraphicsItem *parent) : TextElement(parent), score_(
     updateScore(score_);
     setDefaultTextColor(Qt::white);
     setFont(QFont("times", 16));
+    setDefaultTextColor(QColor(Qt::black));
 }
 
 int ScoreElement::score() {
