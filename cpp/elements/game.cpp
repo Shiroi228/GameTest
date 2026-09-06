@@ -1,5 +1,6 @@
 #include <QAudioOutput>
 #include <QTimer>
+#include <QImage>
 
 #include "game.hpp"
 
@@ -21,6 +22,7 @@ GameView::GameView(QWidget *parent) : QGraphicsView(parent), scene_(new QGraphic
     setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     setFixedSize(800, 600);
     setScene(scene_);
+    setBackgroundBrush(QBrush(QImage(":/images/background.jpg")));
     
     scene_->addItem(scoreElement_);
     scene_->addItem(healthElement_);
